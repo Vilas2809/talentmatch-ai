@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+
 function App() {
   const [file, setFile] = useState(null);
   const [jobDescription, setJobDescription] = useState("");
@@ -30,10 +33,11 @@ function App() {
       setError("");
       setAnalysis("");
 
-      const response = await axios.post(
-        "http://127.0.0.1:8000/analyze",
-        formData
-      );
+      const response = await axios.post(`${API_BASE_URL}/analyze`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       setAnalysis(response.data.analysis);
     } catch (err) {
@@ -46,7 +50,10 @@ function App() {
   const getSection = (title) => {
     if (!analysis) return "";
     const escapedTitle = title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const regex = new RegExp(`${escapedTitle}:([\\s\\S]*?)(?=\\n[A-Za-z ]+:|$)`, "i");
+    const regex = new RegExp(
+      `${escapedTitle}:([\\s\\S]*?)(?=\\n[A-Za-z ]+:|$)`,
+      "i"
+    );
     const match = analysis.match(regex);
     return match ? match[1].trim() : "";
   };
@@ -59,8 +66,14 @@ function App() {
   const missingSkills = getSection("Missing Skills") || "";
   const matchSummary = getSection("Match Summary") || "";
 
-  const resumeScore = Math.min(Math.max(parseInt(resumeScoreText, 10) || 0, 0), 100);
-  const jobMatchScore = Math.min(Math.max(parseInt(jobMatchScoreText, 10) || 0, 0), 100);
+  const resumeScore = Math.min(
+    Math.max(parseInt(resumeScoreText, 10) || 0, 0),
+    100
+  );
+  const jobMatchScore = Math.min(
+    Math.max(parseInt(jobMatchScoreText, 10) || 0, 0),
+    100
+  );
 
   const toList = (text) =>
     text
@@ -107,7 +120,10 @@ function App() {
                   <span>{resumeScore}</span>
                 </div>
                 <div className="score-bar">
-                  <div className="score-fill" style={{ width: `${resumeScore}%` }}></div>
+                  <div
+                    className="score-fill"
+                    style={{ width: `${resumeScore}%` }}
+                  ></div>
                 </div>
               </div>
 
@@ -117,7 +133,10 @@ function App() {
                   <span>{jobMatchScore}</span>
                 </div>
                 <div className="score-bar">
-                  <div className="score-fill" style={{ width: `${jobMatchScore}%` }}></div>
+                  <div
+                    className="score-fill"
+                    style={{ width: `${jobMatchScore}%` }}
+                  ></div>
                 </div>
               </div>
             </div>

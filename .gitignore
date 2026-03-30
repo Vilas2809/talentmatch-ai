@@ -4,6 +4,7 @@ backend/.venv
 .venv
 __pycache__/
 *.pyc
+frontend/.env.local
 
 # Node
 frontend/node_modules/

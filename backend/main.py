@@ -1,5 +1,4 @@
 import os
-import re
 import fitz
 from dotenv import load_dotenv
 from groq import Groq
@@ -12,7 +11,7 @@ app = FastAPI(title="AI Resume Roaster")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # change this to your frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
