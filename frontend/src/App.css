@@ -23,17 +23,27 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
+.header {
+  margin-bottom: 18px;
+}
+
 h1 {
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 3rem;
+  line-height: 1.1;
 }
 
 .subtitle {
   text-align: center;
-  margin-top: 8px;
-  color: #94a3b8;
-  margin-bottom: 30px;
-  font-size: 1.05rem;
+  margin: 0;
+  margin-top: 10px;
+  color: #e2e8f0;
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 input,
@@ -144,9 +154,19 @@ button:disabled {
   color: #f8fafc;
 }
 
+.card h2{
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
 .score-card {
   text-align: center;
   border-left: 5px solid #facc15;
+}
+
+.score-card h2 {
+  color: #f8fafc;
 }
 
 .score-circle {
@@ -196,8 +216,16 @@ button:disabled {
   border-left: 5px solid #4ade80;
 }
 
+.matched-card h2 {
+  color: #86efac;
+}
+
 .missing-card {
   border-left: 5px solid #fb7185;
+}
+
+.missing-card h2 {
+  color: #fda4af;
 }
 
 .tag-wrap {
@@ -230,16 +258,32 @@ button:disabled {
   border-left: 5px solid #f87171;
 }
 
+.roast h2 {
+  color: #fca5a5;
+}
+
 .feedback {
   border-left: 5px solid #38bdf8;
+}
+
+.feedback h2 {
+  color: #7dd3fc;
 }
 
 .weak-card {
   border-left: 5px solid #f59e0b;
 }
 
+.weak-card h2 {
+  color: #fcd34d
+}
+
 .strengths {
   border-left: 5px solid #4ade80;
+}
+
+.strengths h2 {
+  color: #86efac;
 }
 
 ul {

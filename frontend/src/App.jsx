@@ -131,10 +131,12 @@ function App() {
   return (
     <div className="app">
       <div className="container">
-        <h1>🔥 AI Resume Roaster</h1>
-        <p className="subtitle">
-          Actionable insights. Smart Feedback. Real career impact.
-        </p>
+        <div className="header">
+          <h1>🔥 AI Resume Roaster</h1>
+          <p className="subtitle">
+            Actionable insights. Smart feedback. Real career impact.
+          </p>
+        </div>
 
         <input
           id="resume-upload"
