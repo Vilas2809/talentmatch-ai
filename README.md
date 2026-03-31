@@ -4,7 +4,7 @@ An AI-powered resume analysis platform that scores resumes, matches them against
 
 ## 🌐 Live Demo
 
-**Frontend:** talentmatchai-vilas2809s-projects.vercel.app
+**Frontend:** http://talentmatchai-vilas2809s-projects.vercel.app
 
 ## ✨ Features
 
