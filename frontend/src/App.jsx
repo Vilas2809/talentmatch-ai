@@ -33,6 +33,8 @@ function App() {
       setError("");
       setAnalysis("");
 
+      console.log("API URL:",API_BASE_URL);
+
       const response = await axios.post(`${API_BASE_URL}/analyze`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -41,7 +43,13 @@ function App() {
 
       setAnalysis(response.data.analysis);
     } catch (err) {
-      setError(err.response?.data?.detail || "Something went wrong.");
+      console.error("Upload error:", err);
+      setError(
+        err.response?.data?.detail ||
+        err.response?.data?.message ||
+        err.message ||
+        "Something went wrong."
+      );
     } finally {
       setLoading(false);
     }
