@@ -132,7 +132,7 @@ function App() {
     <div className="app">
       <div className="container">
         <div className="title">
-          <h1> TalentMatch AI</h1>
+          <h1> Prism AI</h1>
           <p className = "feature-tag">
             🔥 Resume Roaster -- AI-powered feedback engine
           </p>
